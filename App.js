@@ -1,20 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import Beranda from './src/pages/Beranda';
+import DetailBerita from './src/pages/DetailBerita';
+import Kategori from './src/pages/Kategori';
+import Video from './src/pages/Video';
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    // <Beranda/>
+    // <DetailBerita/>
+    // <Video/>
+    <Kategori/>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
