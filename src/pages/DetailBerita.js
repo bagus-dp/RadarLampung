@@ -11,7 +11,7 @@ const DetailBerita = () => {
             <View style={{paddingHorizontal:12}}>
                 <Text style={styles.tamel}>Provinsi</Text>
                 <Text style={{ fontSize: 17, fontWeight: 'bold', color: 'black', marginTop: 1, textAlign:'justify' }}>Gubernur Lampung Pastikan Seluruh Masyarakat Yang Terdapak Akan Virus Covid-19 Akan Mendapatkan Bantuan</Text>
-                <Text style={{ fontSize: 10, fontWeight: 'normal', color: '#95a5a6', marginTop: 6, marginBottom: 7 }}>Radar Lampung | Selasa, 4 Januari 2022</Text>
+                <Text style={{ fontSize: 10, fontWeight: 'normal', color: '#95a5a6', marginTop: 1, marginBottom: 7 }}>Radar Lampung | Selasa, 4 Januari 2022</Text>
                 <Text style={styles.isi}>Dinas Kesehatan (Dinkes) Provinsi Lampung menyebutkan terdapat seorang Aparatur Sipil Negara (ASN) terdeteksi positif Covid-19 setelah pulang dinas dari Bogor,
                     namun belum ada hasil yang menyebutkan ASN tersebut mengidap Omicron. Dinkes masih menunggu hasil pemeriksaan dari Litbangkes Kemenkes.</Text>
                 <Text style={styles.isi}>Kepala Dinkes Lampung dr Reihana membantah info yang marak beredar pesan te,rtulis di media sosial seorang warga di Lampung terdeteksi varian Omicron.
@@ -28,13 +28,13 @@ const DetailBerita = () => {
                     melakukan isolasi dan perawatan di rumah sakit. Menurutnya, memang belum ada kasus varian Omicron di Lampung, tapi sudah ada surat edaran dari Kementerian Kesehatan yang mengharuskan pasien terpapar wajib di isolasi di rumah sakit.</Text>
                 <Text style={{ fontSize: 14, fontWeight: 'bold', color: 'black', marginTop: 20 }}>Berita Lain</Text>
                 <Text style={styles.berital}>Kesabaran AKBP Dermawan Yang Dipukuli Massa Pemuda Pancasila Dipuji</Text>
-                <Text style={{ fontSize: 10, fontWeight: 'normal', color: '#95a5a6', marginTop: 6, marginBottom: 20 }}>23 Menit Yang Lalu</Text>
+                <Text style={{ fontSize: 10, fontWeight: 'normal', color: '#95a5a6', marginTop: 2, marginBottom: 20 }}>23 Menit Yang Lalu</Text>
                 <Text style={styles.berital}>AHY Klaim Putusan MK Soal UU Cipta Kerja Sejalan Sikap Demokrat</Text>
-                <Text style={{ fontSize: 10, fontWeight: 'normal', color: '#95a5a6', marginTop: 6, marginBottom: 20 }}>40 Menit Yang Lalu</Text>
+                <Text style={{ fontSize: 10, fontWeight: 'normal', color: '#95a5a6', marginTop: 2, marginBottom: 20 }}>40 Menit Yang Lalu</Text>
                 <Text style={styles.berital}>Alasan Buruh Minta Aturan Upah Mesti Balik ke yang Lama</Text>
-                <Text style={{ fontSize: 10, fontWeight: 'normal', color: '#95a5a6', marginTop: 6, marginBottom: 20 }}>56 Menit Yang Lalu</Text>
+                <Text style={{ fontSize: 10, fontWeight: 'normal', color: '#95a5a6', marginTop: 2, marginBottom: 20 }}>56 Menit Yang Lalu</Text>
                 <Text style={styles.berital}>Dirjen Keuangan Daerah Kemendagri Ardian NoerVianto Dicpot</Text>
-                <Text style={{ fontSize: 10, fontWeight: 'normal', color: '#95a5a6', marginTop: 6, marginBottom: 20 }}>56 Menit Yang Lalu</Text>
+                <Text style={{ fontSize: 10, fontWeight: 'normal', color: '#95a5a6', marginTop: 2, marginBottom: 20 }}>56 Menit Yang Lalu</Text>
                 </View>
             </ScrollView>
         </View>
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
     },
 
     tamel: {
-        fontSize: 16,
+        fontSize: 18,
         fontWeight: 'bold',
         color: '#0057A1',
         marginTop: 10,

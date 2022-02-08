@@ -1,21 +1,9 @@
 import React from 'react';
 import { View, Image, StyleSheet, Text, TextInput, ScrollView, StatusBar } from 'react-native';
-// import lpg from './lpg.png';
-// import sgr from './sgr.jpg';
-// import bdl from './bdl.png';
-// import krm from './krm.jpg';
-// import bsn from './bsn.jpg';
-// import tips from './tips.png';
-// import prtn from './prtn.png';
-// import nsnl from './nsnl.png';
-// import inn from './inn.jpg';
-// import pdd from './pdd.png';
-// import unila from './unila.png';
-// import kdm from './kdm.jpg';
-// import disway from './disway.jpg';
-// import corona from './corona.jpg';
-// import dinkes from './dinkes.png';
-import { lpg, sgr, bdl, krm, bsn, tips, prtn, nsnl, inn, pdd, unila, kdm, disway, corona, dinkes } from '../../assets/images';
+import {
+    unila, kdm, disway, corona, dinkes, gambar1, gambar2, gambar3, gambar4, gambar5, gambar6, gambar7, gambar8, gambar9, gambar10,
+    gambar11, gambar12, gambar13, gambar14, gambar15, gambar16, gambar17, gambar18, gambar19, gambar20
+} from '../../assets/images';
 
 
 const Kategori = () => {
@@ -27,25 +15,62 @@ const Kategori = () => {
             </View>
             <Text style={styles.ktb}>KATEGORI BERITA</Text>
             <View style={styles.kate}>
-                <Image source={bsn} style={styles.img} resizeMode='contain' />
-                <Image source={krm} style={styles.img} resizeMode='contain' />
-                <Image source={sgr} style={styles.img} resizeMode='contain' />
-                <Image source={lpg} style={styles.img} resizeMode='contain' />
-                <Image source={bdl} style={styles.img} resizeMode='contain' />
+                <Image source={gambar1} style={styles.img} resizeMode='contain' />
+                <Image source={gambar2} style={styles.img} resizeMode='contain' />
+                <Image source={gambar3} style={styles.img} resizeMode='contain' />
+                <Image source={gambar4} style={styles.img} resizeMode='contain' />
+                <Image source={gambar5} style={styles.img} resizeMode='contain' />
+            </View>
+            {/* <View style={{flexDirection:'row', marginTop:-15, marginRight:40,}}>
+                <Text>bdl</Text>
+                <Text>bdl</Text>
+                <Text>bdl</Text>
+                <Text>bdl</Text>
+                <Text>bdl</Text>
+            </View>  */}
 
+            <View style={styles.kate}>
+                <View style={{justifyContent:'center'}}>
+                    <View style={styles.wrapIcon}>
+                        <Image source={gambar6} style={styles.img} resizeMode='contain' />
+                    </View>
+                    <Text>kategori</Text>
+                </View>
+                <View style={styles.wrapIcon}>
+                    <Image source={gambar7} style={styles.img} resizeMode='contain' />
+                </View>
+                <View style={styles.wrapIcon}>
+                    <Image source={gambar8} style={styles.img} resizeMode='contain' />
+
+                </View>
+                <View style={styles.wrapIcon}>
+                    <Image source={gambar9} style={styles.img} resizeMode='contain' />
+
+                </View>
+                <View style={styles.wrapIcon}>
+                    <Image source={gambar10} style={styles.img} resizeMode='contain' />
+
+                </View>
             </View>
 
             <View style={styles.kate}>
-                <Image source={tips} style={styles.img} resizeMode='contain' />
-                <Image source={prtn} style={styles.img} resizeMode='contain' />
-                <Image source={nsnl} style={styles.img} resizeMode='contain' />
-                <Image source={inn} style={styles.img} resizeMode='contain' />
-                <Image source={pdd} style={styles.img} resizeMode='contain' />
+                <Image source={gambar11} style={styles.img} resizeMode='contain' />
+                <Image source={gambar12} style={styles.img} resizeMode='contain' />
+                <Image source={gambar13} style={styles.img} resizeMode='contain' />
+                <Image source={gambar14} style={styles.img} resizeMode='contain' />
+                <Image source={gambar15} style={styles.img} resizeMode='contain' />
+            </View>
+
+            <View style={styles.kate}>
+                <Image source={gambar16} style={styles.img} resizeMode='contain' />
+                <Image source={gambar17} style={styles.img} resizeMode='contain' />
+                <Image source={gambar18} style={styles.img} resizeMode='contain' />
+                <Image source={gambar19} style={styles.img} resizeMode='contain' />
+                <Image source={gambar20} style={styles.img} resizeMode='contain' />
             </View>
 
             <Text style={styles.ktb}>KERJA SAMA</Text>
             <View style={styles.kerma}>
-                <Image source={bdl} style={styles.img} resizeMode='contain' />
                 <Image source={kdm} style={styles.img} resizeMode='contain' />
                 <Image source={unila} style={styles.img} resizeMode='contain' />
             </View>
@@ -83,26 +108,24 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         color: '#0057A1',
         marginLeft: 12,
-        marginTop:18
+        marginTop: 18
     },
     kate: {
         flexDirection: 'row',
-        marginTop: 20,
-        // justifyContent: 'center',
-        // alignItems: 'center',
-        marginRight: 40
+        width: '100%',
+        justifyContent: 'space-between',
+        padding: 12,
     },
     img: {
-        width: 40,
-        height: 60,
-        marginLeft: 25,
-        marginTop: 15,
-        marginBottom: 20
+        width: 24,
+        height: 24,
+
     },
     kerma: {
         flexDirection: 'row',
         marginTop: 20,
-    }
+    },
+    wrapIcon: { padding: 10, borderWidth: 1, borderRadius: 50, justifyContent: 'center' }
 })
 
 

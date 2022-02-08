@@ -5,27 +5,67 @@ import berita2 from './berita2.jpg';
 import berita3 from './berita3.jpg';
 import berita4 from './berita4.jpg';
 import berita5 from './berita5.jpg';
+import berita6 from './berita6.jpg';
+import berita7 from './berita7.jpg';
+import berita8 from './berita8.jpg';
+import berita9 from './berita9.png';
+import berita10 from './berita10.png';
+import berita11 from './berita11.png';
+import berita12 from './berita12.jpg';
+import berita13 from './berita13.jpg';
+import berita14 from './berita14.jpg';
+import berita15 from './berita15.jpg';
+import berita16 from './berita16.jpg';
+import berita17 from './berita17.jpeg';
+import berita18 from './berita18.jpg';
+import berita19 from './berita19.jpeg';
+import berita20 from './berita20.jpeg';
+import berita21 from './berita21.jpeg';
+import berita22 from './berita22.jpg';
+import berita23 from './berita23.jpg';
+import berita24 from './berita24.jpeg';
+import berita25 from './berita25.jpg';
+import berita26 from './berita26.jpeg';
+import berita27 from './berita27.jpg';
+import berita28 from './berita28.jpg';
 import searchLogo from './search.png';
 import menu from './menu.png';
 import home from './home.png';
 import yutup from './yutup.png';
-import lpg from './lpg.png';
-import sgr from './sgr.jpg';
-import bdl from './bdl.png';
-import krm from './krm.jpg';
-import bsn from './bsn.jpg';
-import tips from './tips.png';
-import prtn from './prtn.png';
-import nsnl from './nsnl.png';
-import inn from './inn.jpg';
-import pdd from './pdd.png';
 import unila from './unila.png';
 import kdm from './kdm.jpg';
 import disway from './Disway.jpg';
 import corona from './Corona.jpg';
 import dinkes from './dinkes.png';
-
+import video1 from './video1.png';
+import video2 from './video2.png';
+import video3 from './video3.png';
+import video4 from './video4.png';
+import video5 from './video5.png';
+import video6 from './video6.png';
+import video7 from './video7.png';
+import video8 from './video8.png';
+import gambar1 from './gambar1.png';
+import gambar2 from './gambar2.png';
+import gambar3 from './gambar3.png';
+import gambar4 from './gambar4.png';
+import gambar5 from './gambar5.png';
+import gambar6 from './gambar6.png';
+import gambar7 from './gambar7.png';
+import gambar8 from './gambar8.png';
+import gambar9 from './gambar9.png';
+import gambar10 from './gambar10.png';
+import gambar11 from './gambar11.png';
+import gambar12 from './gambar12.png';
+import gambar13 from './gambar13.png';
+import gambar14 from './gambar14.png';
+import gambar15 from './gambar15.png';
+import gambar16 from './gambar16.png';
+import gambar17 from './gambar17.png';
+import gambar18 from './gambar18.png';
+import gambar19 from './gambar19.png';
+import gambar20 from './gambar20.png';
 export {
-    darkModeLogo, logo, berita1, berita5, berita4, berita3, berita2, searchLogo, menu, home, yutup, lpg, sgr, bdl, krm,
-    bsn, tips, prtn, nsnl, inn, pdd, unila, kdm, disway, corona, dinkes
-}
+    darkModeLogo, logo, berita1, berita5, berita4, berita3, berita2, searchLogo, menu, home, yutup, unila, kdm, disway, corona, dinkes, berita6, berita7, berita8, berita9, berita10, berita11, berita12, berita13, berita14, 
+berita15, berita16, berita17, berita18, berita19, berita20, berita21, berita22, berita23, berita24, berita25, berita26, berita27, berita28, video1, video2, video3, video4, video5, video6, video7, video8, gambar1, gambar2, gambar3, gambar4, gambar5,
+gambar6, gambar7, gambar8, gambar9, gambar10, gambar11, gambar12, gambar13, gambar14, gambar15, gambar16, gambar17, gambar18, gambar19, gambar20 }
