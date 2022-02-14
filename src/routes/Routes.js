@@ -25,16 +25,8 @@ const Route = () => {
         }}>
         <Stack.Screen name="Beranda" component={Tabs} />
         <Stack.Screen
-          name="Kategori"
-          component={Kategori}
-        />
-        <Stack.Screen
           name="DetailBerita"
           component={DetailBerita}
-        />
-        <Stack.Screen
-          name="Video"
-          component={Video}
         />
       </Stack.Navigator>
     );

@@ -205,8 +205,8 @@ const listBerita = [
 ];
 
 const Beranda = () => {
-  const [kategori, setKategori] = useState("Beranda");
-  const [data, setData] = useState(listBerita.filter((e) => e.kategori == "Beranda"));
+  const [kategori, setKategori] = useState("Berita Terbaru");
+  const [data, setData] = useState(listBerita.filter((e) => e.kategori == "Berita Terbaru"));
   const setKategoriFilter = (kategori) => {
     setData([...listBerita.filter((e) => e.kategori == kategori)]);
     setKategori(kategori);
