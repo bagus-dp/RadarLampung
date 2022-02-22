@@ -1,91 +1,194 @@
 import React from 'react';
-import { View, Image, StyleSheet, Text, TextInput, ScrollView, StatusBar } from 'react-native';
+import { View, Image, StyleSheet, Text, TextInput, ScrollView, FlatList, TouchableOpacity } from 'react-native';
 import {
     unila, kdm, disway, corona, dinkes, gambar1, gambar2, gambar3, gambar4, gambar5, gambar6, gambar7, gambar8, gambar9, gambar10,
     gambar11, gambar12, gambar13, gambar14, gambar15, gambar16, gambar17, gambar18, gambar19, gambar20
 } from '../../assets/images';
 
+const listKategori = [
+    {
+        id: 6,
+        logo: gambar1,
+        name: 'Lampung'
+    },
+    {
+        id: 7,
+        logo: gambar2,
+        name: ' Bandar Lampung'
+    },
+    {
+        id: 8,
+        logo: gambar3,
+        name: 'Provinsi'
+    },
+    {
+        id: 9,
+        logo: gambar4,
+        name: 'Bisnis'
+    },
+    {
+        id: 10,
+        logo: gambar5,
+        name: 'Kriminal'
+    },
+    {
+        id: 11,
+        logo: gambar6,
+        name: 'Pendidikan'
+    },
+    {
+        id: 12,
+        logo: gambar7,
+        name: 'Internasional'
+    },
+    {
+        id: 13,
+        logo: gambar8,
+        name: 'Nasional'
+    },
+    {
+        id: 14,
+        logo: gambar9,
+        name: 'Pertanian'
+    },
+    {
+        id: 15,
+        logo: gambar10,
+        name: 'Tips'
+    },
+    {
+        id: 16,
+        logo: gambar11,
+        name: 'Sport'
+    },
+    {
+        id: 17,
+        logo: gambar12,
+        name: 'Kuliner'
+    },
+    {
+        id: 18,
+        logo: gambar13,
+        name: 'Seni Budaya'
+    },
+    {
+        id: 19,
+        logo: gambar14,
+        name: 'Blitz'
+    },
+    {
+        id: 20,
+        logo: gambar15,
+        name: 'Viral'
+    },
+    {
+        id: 21,
+        logo: gambar16,
+        name: 'Ekonomi Bisnis'
+    },
+    {
+        id: 22,
+        logo: gambar17,
+        name: 'Wisata'
+    },
+    {
+        id: 23,
+        logo: gambar18,
+        name: 'Lifestyle'
+    },
+    {
+        id: 24,
+        logo: gambar19,
+        name: 'Otomotif'
+    },
+    {
+        id: 15,
+        logo: gambar20,
+        name: 'Video'
+    },
+
+
+
+]
+
 
 const Kategori = () => {
     return (
-        <ScrollView>
-            <StatusBar />
-            <View style={styles.border}>
-                <Text style={styles.borderk}>Kategori</Text>
+        <View style={{ flex: 1 }}>
+            <View style={{ padding: 10, borderBottomWidth: 1, borderColor: '#c4c4c4', height: 50, }}>
+                <Text style={{ fontSize: 16, fontWeight: 'bold' }}>
+                    Kategori
+                </Text>
             </View>
-            <Text style={styles.ktb}>KATEGORI BERITA</Text>
-            <View style={styles.kate}>
-                <Image source={gambar1} style={styles.img} resizeMode='contain' />
-                <Image source={gambar2} style={styles.img} resizeMode='contain' />
-                <Image source={gambar3} style={styles.img} resizeMode='contain' />
-                <Image source={gambar4} style={styles.img} resizeMode='contain' />
-                <Image source={gambar5} style={styles.img} resizeMode='contain' />
-            </View>
-            {/* <View style={{flexDirection:'row', marginTop:-15, marginRight:40,}}>
-                <Text>bdl</Text>
-                <Text>bdl</Text>
-                <Text>bdl</Text>
-                <Text>bdl</Text>
-                <Text>bdl</Text>
-            </View>  */}
+            <ScrollView>
 
-            <View style={styles.kate}>
-                <View style={{justifyContent:'center'}}>
-                    <View style={styles.wrapIcon}>
-                        <Image source={gambar6} style={styles.img} resizeMode='contain' />
+                <Text style={{marginLeft:10}}>Kategori Berita</Text>
+                <FlatList
+                    data={listKategori}
+                    numColumns={4}
+                    renderItem={({ item }) => (
+                        <View style={{ paddingHorizontal: 25, marginVertical: 10, width: '25%', justifyContent: 'center' }}>
+                            <TouchableOpacity style={{ justifyContent: 'center' }}>
+                                <View style={{ padding: 6, borderRadius: 21, borderWidth: 1, borderColor: '#c3c3c3' }}>
+                                    <Image source={item.logo} style={{ width: 25, height: 25 }} />
+                                </View>
+                                <Text style={{ fontWeight: '700', fontSize: 10 }} numberOfLines={1} >{item.name}</Text>
+                            </TouchableOpacity>
+                        </View>
+                    )}
+                    keyExtractor={(item) => item.id}
+                // ListFooterComponent={<View style={{ marginBottom: 50 }} />}
+                />
+                <Text style={{marginLeft:10}}>Kerja Sama</Text>
+                <View style={{ flexDirection: 'row' }}>
+
+                    <View style={{ paddingHorizontal: 25, marginVertical: 10, width: '25%', justifyContent: 'center' }}>
+                        <TouchableOpacity style={{ justifyContent: 'center' }}>
+                            <View style={{ padding: 6, borderRadius: 21, borderWidth: 1, borderColor: '#c3c3c3' }}>
+                                <Image source={unila} style={{ width: 25, height: 25 }} />
+                            </View>
+                        </TouchableOpacity>
                     </View>
-                    <Text>kategori</Text>
+                    <View style={{ paddingHorizontal: 25, marginVertical: 10, width: '25%', justifyContent: 'center' }}>
+                        <TouchableOpacity style={{ justifyContent: 'center' }}>
+                            <View style={{ padding: 6, borderRadius: 21, borderWidth: 1, borderColor: '#c3c3c3' }}>
+                                <Image source={kdm} style={{ width: 25, height: 25 }} />
+                            </View>
+                        </TouchableOpacity>
+                    </View>
                 </View>
-                <View style={styles.wrapIcon}>
-                    <Image source={gambar7} style={styles.img} resizeMode='contain' />
+                <Text style={{marginLeft:10}}>Link Terkait</Text>
+                <View style={{ flexDirection: 'row' }}>
+
+                    <View style={{ paddingHorizontal: 25, marginVertical: 10, width: '25%', justifyContent: 'center' }}>
+                        <TouchableOpacity style={{ justifyContent: 'center' }}>
+                            <View style={{ padding: 6, borderRadius: 21, borderWidth: 1, borderColor: '#c3c3c3' }}>
+                                <Image source={disway} style={{ width: 25, height: 25 }} />
+                            </View>
+                        </TouchableOpacity>
+                    </View>
                 </View>
-                <View style={styles.wrapIcon}>
-                    <Image source={gambar8} style={styles.img} resizeMode='contain' />
+                <Text style={{marginLeft:10}}>Informasi Terkait</Text>
+                
+                <View style={{ flexDirection: 'row' }}>
 
+                    <View style={{ paddingHorizontal: 25, marginVertical: 10, width: '25%', justifyContent: 'center' }}>
+                        <TouchableOpacity style={{ justifyContent: 'center' }}>
+                            <View style={{ padding: 6, borderRadius: 21, borderWidth: 1, borderColor: '#c3c3c3' }}>
+                                <Image source={corona} style={{ width: 25, height: 25 }} />
+                            </View>
+                        </TouchableOpacity>
+                    </View>
+                    <View style={{ paddingHorizontal: 25, marginVertical: 10, width: '25%', justifyContent: 'center' }}>
+                        <TouchableOpacity style={{ justifyContent: 'center' }}>
+                            <View style={{ padding: 6, borderRadius: 21, borderWidth: 1, borderColor: '#c3c3c3' }}>
+                                <Image source={dinkes} style={{ width: 25, height: 25 }} />
+                            </View>
+                        </TouchableOpacity>
+                    </View>
                 </View>
-                <View style={styles.wrapIcon}>
-                    <Image source={gambar9} style={styles.img} resizeMode='contain' />
-
-                </View>
-                <View style={styles.wrapIcon}>
-                    <Image source={gambar10} style={styles.img} resizeMode='contain' />
-
-                </View>
-            </View>
-
-            <View style={styles.kate}>
-                <Image source={gambar11} style={styles.img} resizeMode='contain' />
-                <Image source={gambar12} style={styles.img} resizeMode='contain' />
-                <Image source={gambar13} style={styles.img} resizeMode='contain' />
-                <Image source={gambar14} style={styles.img} resizeMode='contain' />
-                <Image source={gambar15} style={styles.img} resizeMode='contain' />
-            </View>
-
-            <View style={styles.kate}>
-                <Image source={gambar16} style={styles.img} resizeMode='contain' />
-                <Image source={gambar17} style={styles.img} resizeMode='contain' />
-                <Image source={gambar18} style={styles.img} resizeMode='contain' />
-                <Image source={gambar19} style={styles.img} resizeMode='contain' />
-                <Image source={gambar20} style={styles.img} resizeMode='contain' />
-            </View>
-
-            <Text style={styles.ktb}>KERJA SAMA</Text>
-            <View style={styles.kerma}>
-                <Image source={kdm} style={styles.img} resizeMode='contain' />
-                <Image source={unila} style={styles.img} resizeMode='contain' />
-            </View>
-
-            <Text style={styles.ktb}>LINK TERKAIT</Text>
-            <View style={{ flexDirection: 'row' }}>
-                <Image source={disway} style={{ width: 100, height: 80, marginTop: 15, marginLeft: 20 }} resizeMode='contain' />
-            </View>
-
-            <Text style={styles.ktb}>INFORMASI COVID</Text>
-            <View style={{ flexDirection: 'row' }}>
-                <Image source={corona} style={{ width: 100, height: 80, marginTop: 15 }} resizeMode='contain' />
-                <Image source={dinkes} style={{ width: 100, height: 80, marginTop: 15 }} resizeMode='contain' />
-            </View>
-        </ScrollView>
+            </ScrollView>
+        </View>
     )
 }
 const styles = StyleSheet.create({

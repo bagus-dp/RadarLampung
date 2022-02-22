@@ -5,7 +5,8 @@ import Kategori from './Kategori';
 import Lpg from './Lpg';
 import Nasional from './Nasional';
 import Video from './Video';
+import Videos from './Videos';
 
 export {
-    Video, BandarLampung, Beranda, DetailBerita, Kategori, Lpg, Nasional
+    Videos, BandarLampung, Beranda, DetailBerita, Kategori, Lpg, Nasional
 }

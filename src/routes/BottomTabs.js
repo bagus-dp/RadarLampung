@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Image, StyleSheet, View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Video, BandarLampung, Beranda, Kategori } from "../pages";
+import { Videos, BandarLampung, Beranda, Kategori } from "../pages";
 import { icon_home, icon_kategori, icon_video } from "../../assets/icons";
 
 const Tab = createBottomTabNavigator();
@@ -18,9 +18,9 @@ const Tabs =  () => {
                 elevation:0,
                 backgroundColor:'#F5F4F1',
                 // borderRadius:15,
-                height:90,
-                borderTopRightRadius:40,
-                borderTopLeftRadius:40,
+                height:60,
+                borderTopRightRadius:30,
+                borderTopLeftRadius:30,
                 ...styles.shadow,
                 paddingHorizontal:40
             },
@@ -35,7 +35,7 @@ const Tabs =  () => {
                     style={{
                         width:25,
                         height:25,
-                        tintColor: focused ? '#000' : '#C4C4C4'
+                        tintColor: focused ? '#0057A1' : '#C4C4C4'
                     }} />
                 </View>
             )
@@ -47,18 +47,18 @@ const Tabs =  () => {
                 style={{
                     width:25,
                     height:25,
-                    tintColor: focused ? '#000' : '#C4C4C4'
+                    tintColor: focused ? '#0057A1' : '#C4C4C4'
                 }} />
             </View>
         ) }}/>
-        <Tab.Screen name="Video" component={Video} 
+        <Tab.Screen name="Videos" component={Videos} 
           options={{ headerShown: false, tabBarIcon: ({focused}) => (
             <View>
                 <Image source={icon_video} resizeMode='contain'
                 style={{
                     width:25,
                     height:25,
-                    tintColor: focused ? '#000' : '#C4C4C4'
+                    tintColor: focused ? '#0057A1' : '#C4C4C4'
                 }} />
             </View>
         ) }} />

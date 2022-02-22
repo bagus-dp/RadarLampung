@@ -182,8 +182,7 @@ const listBerita = [
   {
     id: 16,
     image: berita25,
-    title:
-      '“Terima Kasih Pak Airlangga, Minyak Goreng di Pasar Ini Harganya Sekarang Sudah Turun"',
+    title: "Terima Kasih Pak Airlangga, Minyak Goreng di Pasar Ini Harganya Sekarang Sudah Turun",
     keterangan: "Radar Lampung | Rabu 6 Januari 2022 20:30 WIB",
     kategori: "Nasional",
   },
@@ -204,13 +203,62 @@ const listBerita = [
   },
 ];
 
-const Beranda = () => {
+const listHeader = [
+  {
+    id: 19,
+    image: 'https://radarlampung.co.id/wp-content/uploads/2022/02/IMG-20220222-WA0016-1536x1148.jpg',
+    title: "Winarti Warning Pengusaha Nakal yang Nekat Timbun Minyak Goreng",
+    keterangan: "Radar Lampung | Rabu 6 Januari 2022 20:30",
+    kategori: "Berita Terbaru",
+  },
+  {
+    id: 20,
+    image: 'https://radarlampung.co.id/wp-content/uploads/2022/02/IMG-20220215-WA0015.jpg',
+    title: "Sukarma Wijaya Jabat Pj. Sekkot Bandarlampung",
+    keterangan: "Radar Lampung | Rabu 6 Januari 2022 21:00",
+    kategori: "Bandar Lampung",
+  },
+  {
+    id: 21,
+    image: 'https://radarlampung.co.id/wp-content/uploads/2020/10/images-2020-10-29T200524.723.jpeg',
+    title: "Tambah 55 Kasus Positif Covid-19 di Tanggamus",
+    keterangan: "Radar Lampung | Rabu 6 Januari 2022 21:30",
+    kategori: "Lampung Raya",
+  },
+  {
+    id: 22,
+    image: 'https://radarlampung.co.id/wp-content/uploads/2022/02/IMG_20220215_213901.jpg',
+    title: "PPKM 386 Kabupaten/Kota di Luar Jawa-Bali Diperpanjang Dua Pekan",
+    keterangan: "Radar Lampung | Rabu 6 Januari 2022 21:40",
+    kategori: "Nasional",
+  },
+  {
+    id: 23,
+    image: 'https://radarlampung.co.id/wp-content/uploads/2022/02/WhatsApp-Image-2022-02-10-at-15.36.24-1536x1006.jpeg',
+    title: "Tegas ! Ini Pesan AHY ke Ketua Partai Demokrat Lampung Soal Wajib Rangkul Semua Pihak",
+    keterangan: "Radar Lampung | Rabu 6 Januari 2022 22:00",
+    kategori: "Politik",
+  },
+  {
+    id: 24,
+    image: 'https://radarlampung.co.id/wp-content/uploads/2022/02/WhatsApp-Image-2022-02-09-at-19.09.25-e1644412013217.jpeg',
+    title: "Raih 114 Medali, Rafflesia Swimming Club Bandar Lampung Juara Umum Damraman Championship 2022",
+    keterangan: "Radar Lampung | Rabu 6 Januari 2022 22:15",
+    kategori: "Sport",
+  }
+
+]
+
+const Beranda = ({ navigation }) => {
   const [kategori, setKategori] = useState("Berita Terbaru");
   const [data, setData] = useState(listBerita.filter((e) => e.kategori == "Berita Terbaru"));
+  const [header, setHeader] = useState(listHeader.filter((e) => e.kategori == "Berita Terbaru"));
   const setKategoriFilter = (kategori) => {
     setData([...listBerita.filter((e) => e.kategori == kategori)]);
+    setHeader([...listHeader.filter((e) => e.kategori == kategori)]);
     setKategori(kategori);
   };
+
   return (
     <View style={styles.container}>
       <StatusBar />
@@ -256,23 +304,30 @@ const Beranda = () => {
         />
         <ScrollView showsVerticalScrollIndicator={false}>
           <View>
-            <Text style={{ fontSize: 18, fontWeight: "bold" }}>
-              Berita Terbaru
+            <Text style={{ fontSize: 18, fontWeight: "bold", color: '#0057A1' }}>
+              {kategori}
             </Text>
-            <Image source={berita1} style={styles.beritaa} />
-            <Text style={styles.titleText}>
-              Presiden Jokowi Dukung Penuh Timnas Indonesia Berlaga di Kejuaraan
-              AFF 2020 Bertemu Thailand
-            </Text>
-            <Text style={{ ...styles.captionText, marginTop: -15 }}>
-              Radar Lampung | Rabu 5 Januari 2022 20:28WIB
-            </Text>
+            {header.map((item) =>
+              <View>
+                <Image source={{ uri: item.image }} style={styles.beritaa} />
+                <Text style={styles.titleText}>
+                  {item.title}
+                </Text>
+                <Text style={{ ...styles.captionText, marginTop: -15 }}>
+                  {item.keterangan}
+                </Text>
+              </View>)
+            }
           </View>
+
           <View style={{ marginVertical: 10 }} />
           <FlatList
             data={data}
             renderItem={({ item }) => (
-              <View style={{ flexDirection: "row", marginBottom: 10 }}>
+              <TouchableOpacity style={{ flexDirection: "row", marginBottom: 10 }} onPress={() => {
+                navigation.navigate("DetailBerita");
+              }}
+              >
                 <Image
                   source={item.image}
                   style={{
@@ -290,7 +345,8 @@ const Beranda = () => {
                   </Text>
                   <Text style={styles.captionText}>{item.keterangan}</Text>
                 </View>
-              </View>
+
+              </TouchableOpacity>
             )}
             keyExtractor={(item) => item.id}
             ListFooterComponent={<View style={{ marginBottom: 180 }} />}

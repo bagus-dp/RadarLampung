@@ -7,7 +7,7 @@ import {
   Kategori,
   DetailBerita,
   BandarLampung,
-  Video
+  Videos
 } from "../pages";
 import Tabs from "./BottomTabs";
 

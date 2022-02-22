@@ -1,13 +1,18 @@
 import React from 'react';
-import { View, Image, StyleSheet, Text, ScrollView, StatusBar } from 'react-native';
+import { View, Image, StyleSheet, Text, ScrollView, StatusBar, ImageBackground } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import {berita5} from '../../assets/images';
 
-const DetailBerita = () => {
+const DetailBerita = ({navigation}) => {
     return (
         <View style={{ flex: 1 }}>
             <StatusBar/>
-            <ScrollView style={{}}>
-            <Image source={berita5} style={styles.gambar} />
+            <ScrollView>
+            <ImageBackground source={berita5} style={styles.gambar} >
+                <TouchableOpacity style={{marginLeft:10, marginTop:10}} onPress={ () => navigation.navigate('Beranda')}>
+                <Text style={{color:'#000', fontWeight:'bold', }}>Back</Text>
+                </TouchableOpacity>
+            </ImageBackground>
             <View style={{paddingHorizontal:12}}>
                 <Text style={styles.tamel}>Provinsi</Text>
                 <Text style={{ fontSize: 17, fontWeight: 'bold', color: 'black', marginTop: 1, textAlign:'justify' }}>Gubernur Lampung Pastikan Seluruh Masyarakat Yang Terdapak Akan Virus Covid-19 Akan Mendapatkan Bantuan</Text>
@@ -45,8 +50,8 @@ const styles = StyleSheet.create({
     gambar: {
         width: 410,
         height: 330,
-        justifyContent: 'center',
-        alignItems: 'center',
+        // justifyContent: 'center',
+        // alignItems: 'center',
         marginHorizontal: 0,
         padding: 1
     },
