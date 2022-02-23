@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, StyleSheet, Text, TextInput, ScrollView, FlatList, TouchableOpacity } from 'react-native';
+import { View, Image, StyleSheet, Text, ScrollView, FlatList, TouchableOpacity } from 'react-native';
 import {
     unila, kdm, disway, corona, dinkes, gambar1, gambar2, gambar3, gambar4, gambar5, gambar6, gambar7, gambar8, gambar9, gambar10,
     gambar11, gambar12, gambar13, gambar14, gambar15, gambar16, gambar17, gambar18, gambar19, gambar20
@@ -114,7 +114,7 @@ const listKategori = [
 
 const Kategori = () => {
     return (
-        <View style={{ flex: 1 }}>
+        <View style={{ flex: 1, backgroundColor:'white' }}>
             <View style={{ padding: 10, borderBottomWidth: 1, borderColor: '#c4c4c4', height: 50, }}>
                 <Text style={{ fontSize: 16, fontWeight: 'bold' }}>
                     Kategori
@@ -127,12 +127,12 @@ const Kategori = () => {
                     data={listKategori}
                     numColumns={4}
                     renderItem={({ item }) => (
-                        <View style={{ paddingHorizontal: 25, marginVertical: 10, width: '25%', justifyContent: 'center' }}>
-                            <TouchableOpacity style={{ justifyContent: 'center' }}>
-                                <View style={{ padding: 6, borderRadius: 21, borderWidth: 1, borderColor: '#c3c3c3' }}>
-                                    <Image source={item.logo} style={{ width: 25, height: 25 }} />
+                        <View style={{ marginVertical: 10, width: '25%', justifyContent: 'center' }}>
+                            <TouchableOpacity style={{ justifyContent: 'center', alignItems:'center', }}>
+                                <View style={{ padding: 14, borderRadius: 21, backgroundColor:'white', marginBottom:4, ...styles.shadow }}>
+                                    <Image source={item.logo} style={{ width: 14, height: 14 }} />
                                 </View>
-                                <Text style={{ fontWeight: '700', fontSize: 10 }} numberOfLines={1} >{item.name}</Text>
+                                <Text style={{ fontWeight: '700', fontSize: 10, }} numberOfLines={1} >{item.name}</Text>
                             </TouchableOpacity>
                         </View>
                     )}
@@ -144,15 +144,15 @@ const Kategori = () => {
 
                     <View style={{ paddingHorizontal: 25, marginVertical: 10, width: '25%', justifyContent: 'center' }}>
                         <TouchableOpacity style={{ justifyContent: 'center' }}>
-                            <View style={{ padding: 6, borderRadius: 21, borderWidth: 1, borderColor: '#c3c3c3' }}>
-                                <Image source={unila} style={{ width: 25, height: 25 }} />
+                            <View style={{ padding: 14, borderRadius: 21, backgroundColor:'white', marginBottom:4, ...styles.shadow  }}>
+                                <Image source={unila} style={{ width: 14, height: 14 }} />
                             </View>
                         </TouchableOpacity>
                     </View>
                     <View style={{ paddingHorizontal: 25, marginVertical: 10, width: '25%', justifyContent: 'center' }}>
                         <TouchableOpacity style={{ justifyContent: 'center' }}>
-                            <View style={{ padding: 6, borderRadius: 21, borderWidth: 1, borderColor: '#c3c3c3' }}>
-                                <Image source={kdm} style={{ width: 25, height: 25 }} />
+                            <View style={{ padding: 14, borderRadius: 21, backgroundColor:'white', marginBottom:4, ...styles.shadow  }}>
+                                <Image source={kdm} style={{ width: 14, height: 14 }} />
                             </View>
                         </TouchableOpacity>
                     </View>
@@ -162,8 +162,8 @@ const Kategori = () => {
 
                     <View style={{ paddingHorizontal: 25, marginVertical: 10, width: '25%', justifyContent: 'center' }}>
                         <TouchableOpacity style={{ justifyContent: 'center' }}>
-                            <View style={{ padding: 6, borderRadius: 21, borderWidth: 1, borderColor: '#c3c3c3' }}>
-                                <Image source={disway} style={{ width: 25, height: 25 }} />
+                            <View style={{ padding: 8, borderRadius: 21, backgroundColor:'white', marginBottom:4, ...styles.shadow  }}>
+                                <Image source={disway} style={{ width: 24, height: 24 }} />
                             </View>
                         </TouchableOpacity>
                     </View>
@@ -174,15 +174,15 @@ const Kategori = () => {
 
                     <View style={{ paddingHorizontal: 25, marginVertical: 10, width: '25%', justifyContent: 'center' }}>
                         <TouchableOpacity style={{ justifyContent: 'center' }}>
-                            <View style={{ padding: 6, borderRadius: 21, borderWidth: 1, borderColor: '#c3c3c3' }}>
-                                <Image source={corona} style={{ width: 25, height: 25 }} />
+                            <View style={{ padding: 8, borderRadius: 21, backgroundColor:'white', marginBottom:4, ...styles.shadow  }}>
+                                <Image source={corona} style={{ width: 24, height: 24 }} />
                             </View>
                         </TouchableOpacity>
                     </View>
                     <View style={{ paddingHorizontal: 25, marginVertical: 10, width: '25%', justifyContent: 'center' }}>
                         <TouchableOpacity style={{ justifyContent: 'center' }}>
-                            <View style={{ padding: 6, borderRadius: 21, borderWidth: 1, borderColor: '#c3c3c3' }}>
-                                <Image source={dinkes} style={{ width: 25, height: 25 }} />
+                            <View style={{ padding: 8, borderRadius: 21, backgroundColor:'white', marginBottom:4, ...styles.shadow  }}>
+                                <Image source={dinkes} style={{ width: 24, height: 24 }} />
                             </View>
                         </TouchableOpacity>
                     </View>
@@ -228,7 +228,17 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         marginTop: 20,
     },
-    wrapIcon: { padding: 10, borderWidth: 1, borderRadius: 50, justifyContent: 'center' }
+    wrapIcon: { padding: 10, borderWidth: 1, borderRadius: 50, justifyContent: 'center' },
+    shadow:{
+        shadowColor:'#000',
+        shadowOffset: {
+            width:0,
+            height:-10
+        },
+        shadowOpacity:0.25,
+        shadowRadius:2.5,
+        elevation:5
+    }
 })
 
 
