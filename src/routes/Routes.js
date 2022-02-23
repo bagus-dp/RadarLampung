@@ -1,13 +1,8 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
 import {
-  Beranda,
-  Nasional,
-  Lpg,
-  Kategori,
   DetailBerita,
-  BandarLampung,
-  Videos
+  Search
 } from "../pages";
 import Tabs from "./BottomTabs";
 
@@ -27,6 +22,10 @@ const Route = () => {
         <Stack.Screen
           name="DetailBerita"
           component={DetailBerita}
+        />
+        <Stack.Screen
+          name="Search"
+          component={Search}
         />
       </Stack.Navigator>
     );
