@@ -122,7 +122,7 @@ const Kategori = () => {
             </View>
             <ScrollView>
 
-                <Text style={{marginLeft:10}}>Kategori Berita</Text>
+                <Text style={styles.titleTxt}>Kategori Berita</Text>
                 <FlatList
                     data={listKategori}
                     numColumns={4}
@@ -139,7 +139,7 @@ const Kategori = () => {
                     keyExtractor={(item) => item.id}
                 // ListFooterComponent={<View style={{ marginBottom: 50 }} />}
                 />
-                <Text style={{marginLeft:10}}>Kerja Sama</Text>
+                <Text style={styles.titleTxt}>Kerja Sama</Text>
                 <View style={{ flexDirection: 'row' }}>
 
                     <View style={{ paddingHorizontal: 25, marginVertical: 10, width: '25%', justifyContent: 'center' }}>
@@ -157,7 +157,7 @@ const Kategori = () => {
                         </TouchableOpacity>
                     </View>
                 </View>
-                <Text style={{marginLeft:10}}>Link Terkait</Text>
+                <Text style={styles.titleTxt}>Link Terkait</Text>
                 <View style={{ flexDirection: 'row' }}>
 
                     <View style={{ paddingHorizontal: 25, marginVertical: 10, width: '25%', justifyContent: 'center' }}>
@@ -168,7 +168,7 @@ const Kategori = () => {
                         </TouchableOpacity>
                     </View>
                 </View>
-                <Text style={{marginLeft:10}}>Informasi Terkait</Text>
+                <Text style={styles.titleTxt}>Informasi Terkait</Text>
                 
                 <View style={{ flexDirection: 'row' }}>
 
@@ -187,47 +187,12 @@ const Kategori = () => {
                         </TouchableOpacity>
                     </View>
                 </View>
+                <View style={{marginBottom:100}} />
             </ScrollView>
         </View>
     )
 }
 const styles = StyleSheet.create({
-    border: {
-        width: 410,
-        height: 80,
-        backgroundColor: '#7f8c8d',
-        borderRadius: 25,
-        marginBottom: 25
-    },
-    borderk: {
-        fontSize: 16,
-        fontWeight: 'bold',
-        color: '#0057A1',
-        marginLeft: 12,
-        marginTop: 25
-    },
-    ktb: {
-        fontSize: 16,
-        fontWeight: 'bold',
-        color: '#0057A1',
-        marginLeft: 12,
-        marginTop: 18
-    },
-    kate: {
-        flexDirection: 'row',
-        width: '100%',
-        justifyContent: 'space-between',
-        padding: 12,
-    },
-    img: {
-        width: 24,
-        height: 24,
-
-    },
-    kerma: {
-        flexDirection: 'row',
-        marginTop: 20,
-    },
     wrapIcon: { padding: 10, borderWidth: 1, borderRadius: 50, justifyContent: 'center' },
     shadow:{
         shadowColor:'#000',
@@ -238,6 +203,12 @@ const styles = StyleSheet.create({
         shadowOpacity:0.25,
         shadowRadius:2.5,
         elevation:5
+    },
+    titleTxt:{
+        fontSize:16,
+        fontWeight:'700',
+        marginLeft:20,
+        marginTop:5
     }
 })
 
