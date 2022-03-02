@@ -20,57 +20,60 @@ import {
   video8,
 } from "../../assets/images";
 import YoutubePlayer from "react-native-youtube-iframe";
+import { useTheme } from "@react-navigation/native";
 
 const ListVideo = [
   {
     id: 1,
-    urlVideo: "se_YWoQdP7c",
+    urlVideo: "alN0uZEtESk",
     judul: "Detik-detik gempa Sumur Banten Terasa Sampai Polda BandarLampung",
   },
   {
     id: 2,
-    urlVideo: "afGyg1SGBn8",
+    urlVideo: "1iktehtjBqI",
     judul: "Pencuri Gasak Motor Mahasiswi di Kampus Universitas Lampung",
   },
   {
     id: 3,
-    urlVideo: "oaYMneUUu1Y",
+    urlVideo: "nQ3AbKu-SCw",
     judul: "Hiu Tutul Terdapar Lahirkan Anak di Pantai Sukaraja",
   },
+]
+  const ListVideopilihan = [
   {
     id: 4,
-    urlVideo: "ScDbmoUPdRU",
+    urlVideo: "dXbNXKQk47A",
     judul: "PTM SD-SMP KOTA Bandar Lampung",
   },
   {
     id: 5,
-    urlVideo: "VMsx_xXyr8Y",
+    urlVideo: "JGXJ4wtV8RI",
     judul: "Bobol Indomaret Maling Gasak Sembako Dan Rekaman CCTV",
   },
   {
     id: 6,
-    urlVideo: "hhKL5Ara70U",
+    urlVideo: "qFQ10SXCXm0",
     judul: "BNN Tangkap Terduga Narkoba , 2kg Sabu di Amankan",
   },
   {
     id: 7,
-    urlVideo: "B5zUbploEKY",
+    urlVideo: "G8L8h3oEuaQ",
     judul:
       "Kunjungi Gereja di Bandar Lampung Gus Yaqut, Isyaratkan junjung tinggi Toleransi",
   },
   {
     id: 8,
-    urlVideo: "nUhy62ugMoo",
+    urlVideo: "L10JkrVOiuA",
     judul: "Nataru, 2900 Personil Siaga di 67 titik di Bandar Lampung",
   },
 ];
 
 const Videos = () => {
   const video = React.useRef(null);
-  const [status, setStatus] = React.useState({});
+  const {colors} = useTheme();
 
   return (
-    <View style={{ flex: 1, backgroundColor: "white" }}>
+    <View style={{ flex: 1}}>
       <View
         style={{
           padding: 10,
@@ -79,7 +82,7 @@ const Videos = () => {
           height: 50,
         }}
       >
-        <Text style={{ fontSize: 16, fontWeight: "bold" }}>Videos</Text>
+        <Text style={{ fontSize: 16, fontWeight: "bold", color:colors.text }}>Videos</Text>
       </View>
       <FlatList
         data={ListVideo}
@@ -91,7 +94,7 @@ const Videos = () => {
                 height= {170}
                 videoId={item.urlVideo}
               />
-              <Text style={{ fontWeight: "bold", fontSize: 16 }}>
+              <Text style={{ fontWeight: "bold", fontSize: 16, color:colors.text }}>
                 {item.judul}
               </Text>
             </View>

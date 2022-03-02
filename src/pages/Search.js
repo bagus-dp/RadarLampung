@@ -9,14 +9,16 @@ import {
 import React from "react";
 import { searchLogo } from "../../assets/images";
 import Icon from "react-native-vector-icons/Ionicons";
+import { useTheme } from "@react-navigation/native";
 
 const Search = ({ navigation }) => {
+  const {colors} = useTheme();
   return (
     <View style={styles.container}>
       <View style={{ flexDirection: "row", alignItems: "center" }}>
         <TouchableOpacity onPress={() => navigation.navigate("Beranda")}>
           <View style={styles.buttonBack}>
-            <Icon name="arrow-back-outline" size={24} color="#000"  />
+            <Icon name="arrow-back-outline" size={24} color={colors.text}  />
           </View>
         </TouchableOpacity>
         <View style={styles.searchContainer}><Icon
@@ -30,6 +32,7 @@ const Search = ({ navigation }) => {
             style={styles.input}
             autoFocus
             autoCapitalize="none"
+            placeholderTextColor={colors.text}
           />
         </View>
       </View>

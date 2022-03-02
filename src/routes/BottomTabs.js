@@ -3,10 +3,12 @@ import { Image, StyleSheet, View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { Videos, BandarLampung, Beranda, Kategori } from "../pages";
 import { icon_home, icon_kategori, icon_video } from "../../assets/icons";
+import { useTheme } from "@react-navigation/native";
 
 const Tab = createBottomTabNavigator();
 
 const Tabs =  () => {
+  const {colors} = useTheme();
   return (
       <Tab.Navigator 
         screenOptions={{
@@ -16,7 +18,7 @@ const Tabs =  () => {
                 // left:20,
                 // right:20,
                 elevation:0,
-                backgroundColor:'#F5F4F1',
+                backgroundColor: colors.background,
                 // borderRadius:15,
                 height:60,
                 borderTopRightRadius:30,
