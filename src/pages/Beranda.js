@@ -36,7 +36,9 @@ import {
   searchLogo,
 } from "../../assets/images";
 import { Kategori } from ".";
-import  Icon  from "react-native-vector-icons/Ionicons";
+import Icon from "react-native-vector-icons/Ionicons";
+import { ThemeContext } from "../context/ThemeContext";
+import { useTheme } from "@react-navigation/native";
 
 const ListKategori = [
   {
@@ -271,22 +273,32 @@ const Beranda = ({ navigation }) => {
     setHeader([...listHeader.filter((e) => e.kategori == kategori)]);
     setKategori(kategori);
   };
-
+  const { colors } = useTheme();
+  const switchTheme = React.useContext(ThemeContext);
+  const [isDarkMode, setIsDarkMode] = useState(colors.background == "#fff");
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, ...colors.background]}>
       <StatusBar />
 
       <View style={styles.header}>
-        <TouchableOpacity>
-          <Image source={darkModeLogo} style={styles.headerImg} />
+        <TouchableOpacity
+          onPress={() => {
+            switchTheme();
+            setIsDarkMode(!isDarkMode);
+            console.log(isDarkMode);
+          }}
+        >
+          <Icon
+            name={isDarkMode ? "sunny-outline" : "moon-outline"}
+            size={24}
+            color={isDarkMode ? "black" : "white"}
+          />
         </TouchableOpacity>
-        <View style={styles.searchContainer}> 
-        <Icon
-              name="search"
-              size={24}
-              color="#c3c3c3"
-            />
-          <TouchableWithoutFeedback onPress={() => navigation.navigate('Search')}>
+        <View style={styles.searchContainer}>
+          <Icon name="search" size={24} color="#c3c3c3" />
+          <TouchableWithoutFeedback
+            onPress={() => navigation.navigate("Search")}
+          >
             <Text style={{ color: "#c3c3c3", marginLeft: 8 }}>
               RadarLampung.id
             </Text>
@@ -330,13 +342,56 @@ const Beranda = ({ navigation }) => {
               {kategori}
             </Text>
             {header.map((item) => (
-              <View>
+              <TouchableOpacity
+                style={{
+                  backgroundColor: "#125D9D",
+                  borderRadius: 12,
+                  marginTop: 7,
+                  paddingBottom: 14,
+                }}
+                onPress={() => {
+                  navigation.navigate("DetailBerita", {
+                    title: item.title,
+                    image: item.image,
+                    kategori: item.kategori,
+                    keterangan: item.keterangan,
+                    header: true,
+                  });
+                }}
+              >
                 <Image source={{ uri: item.image }} style={styles.beritaa} />
-                <Text style={{...styles.titleText, marginBottom:4}}>{item.title}</Text>
-                <Text style={{ ...styles.captionText, marginLeft:0  }}>
-                  {item.keterangan}
-                </Text>
-              </View>
+                <View style={{ paddingHorizontal: 8 }}>
+                  <Text
+                    style={{
+                      color: "#FCC43F",
+                      fontSize: 14,
+                      fontWeight: "bold",
+                    }}
+                  >
+                    {item.kategori}
+                  </Text>
+                  <Text
+                    style={{
+                      ...styles.titleText,
+                      marginBottom: 4,
+                      color: "white",
+                    }}
+                  >
+                    {item.title}
+                  </Text>
+                  <Text
+                    style={{
+                      ...styles.captionText,
+                      marginLeft: 0,
+                      color: "#C4C4C4",
+                      fontWeight: "bold",
+                      fontSize: 12,
+                    }}
+                  >
+                    {item.keterangan}
+                  </Text>
+                </View>
+              </TouchableOpacity>
             ))}
           </View>
 
@@ -347,7 +402,12 @@ const Beranda = ({ navigation }) => {
               <TouchableOpacity
                 style={{ flexDirection: "row", marginBottom: 10 }}
                 onPress={() => {
-                  navigation.navigate("DetailBerita");
+                  navigation.navigate("DetailBerita", {
+                    title: item.title,
+                    image: item.image,
+                    kategori: item.kategori,
+                    keterangan: item.keterangan,
+                  });
                 }}
               >
                 <Image
@@ -361,7 +421,12 @@ const Beranda = ({ navigation }) => {
                 />
                 <View style={{ flex: 1 }}>
                   <Text
-                    style={{ fontSize: 14, fontWeight: "bold", marginLeft: 7 }}
+                    style={{
+                      fontSize: 14,
+                      fontWeight: "bold",
+                      marginLeft: 7,
+                      color: colors.text,
+                    }}
                   >
                     {item.title}
                   </Text>
@@ -384,7 +449,6 @@ export default Beranda;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
   },
   header: {
     flexDirection: "row",
@@ -413,7 +477,7 @@ const styles = StyleSheet.create({
   beritaa: {
     width: "100%",
     height: 263,
-    marginVertical: 13,
+    marginBottom: 13,
     borderRadius: 12,
   },
   titleText: {
