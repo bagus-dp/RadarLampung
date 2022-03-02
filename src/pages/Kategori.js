@@ -1,3 +1,4 @@
+import { useTheme } from '@react-navigation/native';
 import React from 'react';
 import { View, Image, StyleSheet, Text, ScrollView, FlatList, TouchableOpacity } from 'react-native';
 import {
@@ -113,16 +114,18 @@ const listKategori = [
 
 
 const Kategori = () => {
+  const { colors } = useTheme();
+
     return (
-        <View style={{ flex: 1, backgroundColor:'white' }}>
+        <View style={{ flex: 1 }}>
             <View style={{ padding: 10, borderBottomWidth: 1, borderColor: '#c4c4c4', height: 50, }}>
-                <Text style={{ fontSize: 16, fontWeight: 'bold' }}>
+                <Text style={{ fontSize: 16, fontWeight: 'bold', color: colors.text }}>
                     Kategori
                 </Text>
             </View>
             <ScrollView>
 
-                <Text style={styles.titleTxt}>Kategori Berita</Text>
+                <Text style={{...styles.titleTxt, color:colors.text}}>Kategori Berita</Text>
                 <FlatList
                     data={listKategori}
                     numColumns={4}
@@ -130,34 +133,34 @@ const Kategori = () => {
                         <View style={{ marginVertical: 10, width: '25%', justifyContent: 'center' }}>
                             <TouchableOpacity style={{ justifyContent: 'center', alignItems:'center', }}>
                                 <View style={{ padding: 14, borderRadius: 21, backgroundColor:'white', marginBottom:4, ...styles.shadow }}>
-                                    <Image source={item.logo} style={{ width: 14, height: 14 }} />
+                                    <Image source={item.logo} style={{ width: 14, height: 14, backgroundColor:'white', }} />
                                 </View>
-                                <Text style={{ fontWeight: '700', fontSize: 10, }} numberOfLines={1} >{item.name}</Text>
+                                <Text style={{ fontWeight: '700', fontSize: 10, color:colors.text }} numberOfLines={1} >{item.name}</Text>
                             </TouchableOpacity>
                         </View>
                     )}
                     keyExtractor={(item) => item.id}
                 // ListFooterComponent={<View style={{ marginBottom: 50 }} />}
                 />
-                <Text style={styles.titleTxt}>Kerja Sama</Text>
+                <Text style={{...styles.titleTxt, color:colors.text}}>Kerja Sama</Text>
                 <View style={{ flexDirection: 'row' }}>
 
                     <View style={{ paddingHorizontal: 25, marginVertical: 10, width: '25%', justifyContent: 'center' }}>
                         <TouchableOpacity style={{ justifyContent: 'center' }}>
-                            <View style={{ padding: 14, borderRadius: 21, backgroundColor:'white', marginBottom:4, ...styles.shadow  }}>
-                                <Image source={unila} style={{ width: 14, height: 14 }} />
+                            <View style={{ padding:10, borderRadius: 21, backgroundColor:'white', marginBottom:4, ...styles.shadow  }}>
+                                <Image source={unila} style={{ width: 17, height: 17 }} />
                             </View>
                         </TouchableOpacity>
                     </View>
                     <View style={{ paddingHorizontal: 25, marginVertical: 10, width: '25%', justifyContent: 'center' }}>
                         <TouchableOpacity style={{ justifyContent: 'center' }}>
-                            <View style={{ padding: 14, borderRadius: 21, backgroundColor:'white', marginBottom:4, ...styles.shadow  }}>
-                                <Image source={kdm} style={{ width: 14, height: 14 }} />
+                            <View style={{ padding: 10, borderRadius: 21, backgroundColor:'white', marginBottom:4, ...styles.shadow  }}>
+                                <Image source={kdm} style={{ width: 17, height: 17 }} />
                             </View>
                         </TouchableOpacity>
                     </View>
                 </View>
-                <Text style={styles.titleTxt}>Link Terkait</Text>
+                <Text style={{...styles.titleTxt, color:colors.text}}>Link Terkait</Text>
                 <View style={{ flexDirection: 'row' }}>
 
                     <View style={{ paddingHorizontal: 25, marginVertical: 10, width: '25%', justifyContent: 'center' }}>
@@ -168,7 +171,7 @@ const Kategori = () => {
                         </TouchableOpacity>
                     </View>
                 </View>
-                <Text style={styles.titleTxt}>Informasi Terkait</Text>
+                <Text style={{...styles.titleTxt, color:colors.text}}>Informasi Terkait</Text>
                 
                 <View style={{ flexDirection: 'row' }}>
 
