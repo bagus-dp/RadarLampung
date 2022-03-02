@@ -11,33 +11,43 @@ import {
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { berita5 } from "../../assets/images";
 import Icon from "react-native-vector-icons/Ionicons";
+import { useTheme } from "@react-navigation/native";
 
-const DetailBerita = ({ navigation }) => {
+const DetailBerita = ({ navigation, route }) => {
+  const { title, image, kategori, keterangan,header } = route.params;
+  const { colors } = useTheme();
+
   return (
     <View style={{ flex: 1 }}>
       <StatusBar />
       <ScrollView>
-        <ImageBackground source={berita5} style={styles.gambar}>
+        <ImageBackground source={header ? {uri:image} : image} style={styles.gambar}>
           <TouchableOpacity
-            style={{ marginLeft: 10, marginTop: 10, padding:5, backgroundColor:'white', width:40, borderRadius:25 }}
+            style={{
+              marginLeft: 10,
+              marginTop: 10,
+              padding: 5,
+              backgroundColor: "white",
+              width: 40,
+              borderRadius: 25,
+            }}
             onPress={() => navigation.navigate("Beranda")}
           >
             <Icon name="arrow-back-outline" size={30} color="#000" />
           </TouchableOpacity>
         </ImageBackground>
         <View style={{ paddingHorizontal: 12 }}>
-          <Text style={styles.tamel}>Provinsi</Text>
+          <Text style={styles.tamel}>{kategori}</Text>
           <Text
             style={{
               fontSize: 17,
               fontWeight: "bold",
-              color: "black",
+              color: colors.text,
               marginTop: 1,
               textAlign: "justify",
             }}
           >
-            Gubernur Lampung Pastikan Seluruh Masyarakat Yang Terdapak Akan
-            Virus Covid-19 Akan Mendapatkan Bantuan
+            {title}
           </Text>
           <Text
             style={{
@@ -48,69 +58,56 @@ const DetailBerita = ({ navigation }) => {
               marginBottom: 7,
             }}
           >
-            Radar Lampung | Selasa, 4 Januari 2022
+            {keterangan}
           </Text>
-          <Text style={styles.isi}>
-            Dinas Kesehatan (Dinkes) Provinsi Lampung menyebutkan terdapat
-            seorang Aparatur Sipil Negara (ASN) terdeteksi positif Covid-19
-            setelah pulang dinas dari Bogor, namun belum ada hasil yang
-            menyebutkan ASN tersebut mengidap Omicron. Dinkes masih menunggu
-            hasil pemeriksaan dari Litbangkes Kemenkes.
-          </Text>
-          <Text style={styles.isi}>
-            Kepala Dinkes Lampung dr Reihana membantah info yang marak beredar
-            pesan te,rtulis di media sosial seorang warga di Lampung terdeteksi
-            varian Omicron. “Ada satu kasus positif tapi belum dikirim hasil S
-            Gene Target Failure (SGTF) dan Whole Genome Sequensing (WGS). Kita
-            tunggu hasil dari Litbangkes,” kata Reihana saat dikonfirmasi
-            wartawan di Bandar Lampung, Kamis (13/1).
-          </Text>
-          <Text style={styles.isi}>
-            Ia mengatakan, sampel dari seorang ASN terdeteksi positif Covid-19
-            tersebut akan dikirim ke Litbangkes. ASN tersebut melakukan
-            perjalanan luar kota kegiatan dinas di Bogor pekan lalu. Hasil
-            pemeriksaan pasien tersebut terpapar Covid-19. “Gejala pasien demam
-            dan batuk, mudah-mudahan bukan Omicron,” katanya.
-          </Text>
-          <Text style={styles.isi}>
-            Reihana yang juga jubir Satgas Penanganan Covid-19 Provinsi Lampung
-            mengatakan, dari seorang pasien positif Covid-19 tersebut telah
-            dilakukan tracing kepada 100 orang yang melakukan kontak erat
-            dengannya. Dari jumlah tersebut, hanya terdapat satu orang dari
-            lingkungan keluarga terdeteksi positif Covid-19 setelah dilakukan
-            tes antigen.
-          </Text>
-          <Text style={styles.isi}>
-            Sebuah pesan tertulis di media sosial khususnya Whatsapps (WA)
-            berisi seorang warga Bandar Lampung terdeteksi Covid-19 varian
-            Omicron, Kamis (13/1). Pesan WA beredar berisi: “Rekan2 sekalian
-            hari ini terdeteksi satu orang Warga Bandar Lampung yang terpapar
-            Covid-19 varian Omicron, untuk itu ingatkan terus masyarakat tentang
-            prokes ketat, aktifkan kegiatan PPKM skala Micro dan lakukan 3T
-            kepada orang yang kontak erat dengan warga yang terpapar. Salam
-            sehat selalu.”
-          </Text>
-          <Text style={styles.isi}>
-            eihana membantah info yang tidak jelas sumbernya tersebut. Menurut
-            dia, kalaupun ada pasti akan diumumkan agar masyarakat lebih ketat
-            menerapkan protokol kesehatannya. Sebelumnya, ia menyatakan, bila
-            ditemukan kasus Omicron di daerahnya maka pasien terjangkit
-            diwajibkan untuk melakukan isolasi dan perawatan di rumah sakit.
-            Menurutnya, memang belum ada kasus varian Omicron di Lampung, tapi
-            sudah ada surat edaran dari Kementerian Kesehatan yang mengharuskan
-            pasien terpapar wajib di isolasi di rumah sakit.
+          <Text style={{...styles.isi, color:colors.text}}>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
+            facilisis efficitur dolor. Sed in ipsum risus. Nulla iaculis velit
+            et lobortis facilisis. Pellentesque ut erat turpis. Proin maximus
+            est at nisl auctor, a auctor eros lobortis. Fusce lectus ante,
+            malesuada quis imperdiet id, imperdiet eget arcu. Nam mauris lorem,
+            euismod vel lorem non, hendrerit semper lorem. Aliquam a nunc nisl.
+            Aliquam ornare dui vel dignissim fringilla. Etiam eget congue nisi.
+            Sed quis tortor mauris. Integer non tortor eget erat finibus
+            rhoncus. Duis ut vehicula felis, non scelerisque orci. Cras interdum
+            dignissim est a consequat. Sed at placerat massa. Mauris sapien
+            felis, ultricies nec mollis eget, sollicitudin eget purus. Maecenas
+            at consequat tortor. Donec eleifend molestie fermentum. Quisque
+            sollicitudin massa neque, nec lacinia odio tincidunt et. Quisque in
+            ipsum ut libero ornare placerat et non lorem. Nulla nisi nisi,
+            mattis sit amet sodales vel, condimentum porta mauris. Mauris sed
+            luctus est. Mauris porta ullamcorper velit eu mattis. Sed mollis sed
+            sem non mattis. Aliquam ac ornare augue. Proin maximus purus massa,
+            sit amet rutrum libero sodales et. Praesent suscipit mi nibh, eget
+            suscipit tortor porta sed. In vitae luctus nisl. Proin eget
+            pellentesque orci. Donec mattis sapien ut fringilla vehicula. Donec
+            pharetra vel urna a rhoncus. Cras bibendum tortor eget purus
+            sagittis, eget aliquet augue ultricies. Vestibulum ante ipsum primis
+            in faucibus orci luctus et ultrices posuere cubilia curae; Aenean
+            vitae ante eu nibh iaculis tristique nec ac justo. Phasellus ut
+            ipsum in felis vestibulum elementum. Etiam eu libero tortor. Nunc
+            mattis, nisi a vestibulum malesuada, risus ante dapibus risus, at
+            fringilla nisl quam non velit. In vel iaculis tortor. Morbi ac est
+            eget enim sagittis mattis id sed ante. Praesent efficitur, quam vel
+            fermentum ornare, dolor orci laoreet ipsum, quis fermentum tortor
+            mauris in tellus. Duis sollicitudin, lorem non vulputate suscipit,
+            orci felis tristique libero, et dictum risus nisi vel velit. Proin
+            nisl erat, laoreet eu lacus ut, euismod viverra libero. Nullam
+            dignissim lectus erat, eu vulputate arcu ultricies at. Sed posuere
+            orci egestas, efficitur magna quis, tincidunt magna. Nunc dui velit,
+            imperdiet quis odio id, viverra molestie mauris.
           </Text>
           <Text
             style={{
               fontSize: 14,
               fontWeight: "bold",
-              color: "black",
+              color: colors.text,
               marginTop: 20,
             }}
           >
             Berita Lain
           </Text>
-          <Text style={styles.berital}>
+          <Text style={{...styles.berital, color:colors.text}}>
             Kesabaran AKBP Dermawan Yang Dipukuli Massa Pemuda Pancasila Dipuji
           </Text>
           <Text
@@ -124,7 +121,7 @@ const DetailBerita = ({ navigation }) => {
           >
             23 Menit Yang Lalu
           </Text>
-          <Text style={styles.berital}>
+          <Text style={{...styles.berital, color:colors.text}}>
             AHY Klaim Putusan MK Soal UU Cipta Kerja Sejalan Sikap Demokrat
           </Text>
           <Text
@@ -138,7 +135,7 @@ const DetailBerita = ({ navigation }) => {
           >
             40 Menit Yang Lalu
           </Text>
-          <Text style={styles.berital}>
+          <Text style={{...styles.berital, color:colors.text}}>
             Alasan Buruh Minta Aturan Upah Mesti Balik ke yang Lama
           </Text>
           <Text
@@ -152,7 +149,7 @@ const DetailBerita = ({ navigation }) => {
           >
             56 Menit Yang Lalu
           </Text>
-          <Text style={styles.berital}>
+          <Text style={{...styles.berital, color:colors.text}}>
             Dirjen Keuangan Daerah Kemendagri Ardian NoerVianto Dicpot
           </Text>
           <Text
