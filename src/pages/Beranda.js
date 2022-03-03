@@ -297,9 +297,17 @@ const Beranda = ({ navigation }) => {
         <View style={styles.searchContainer}>
           <Icon name="search" size={24} color="#c3c3c3" />
           <TouchableWithoutFeedback
-            onPress={() => navigation.navigate("Search")}
+            onPress={() => navigation.navigate("Search",{
+              val:'Beranda'
+            })}
           >
-            <Text style={{ color: "#c3c3c3", marginLeft: 8 }}>
+            <Text
+              style={{
+                color: "#c3c3c3",
+                marginLeft: 8,
+                fontFamily: "Montserrat_400Regular",
+              }}
+            >
               RadarLampung.id
             </Text>
           </TouchableWithoutFeedback>
@@ -322,6 +330,8 @@ const Beranda = ({ navigation }) => {
                   style={[
                     styles.textBody2,
                     kategori === item.name && styles.textActive,
+                    ,{
+                      fontFamily: "Montserrat_400Regular",}
                   ]}
                 >
                   {item.name}
@@ -435,7 +445,7 @@ const Beranda = ({ navigation }) => {
               </TouchableOpacity>
             )}
             keyExtractor={(item) => item.id}
-            ListFooterComponent={<View style={{ marginBottom: 180 }} />}
+            ListFooterComponent={<View style={{ marginBottom: 200 }} />}
             showsVerticalScrollIndicator={false}
           />
         </ScrollView>
