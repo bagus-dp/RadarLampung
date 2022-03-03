@@ -11,22 +11,25 @@ import { searchLogo } from "../../assets/images";
 import Icon from "react-native-vector-icons/Ionicons";
 import { useTheme } from "@react-navigation/native";
 
-const Search = ({ navigation }) => {
-  const {colors} = useTheme();
+const Search = ({ navigation, route }) => {
+  const { val } = route.params;
+  const { colors } = useTheme();
   return (
     <View style={styles.container}>
       <View style={{ flexDirection: "row", alignItems: "center" }}>
-        <TouchableOpacity onPress={() => navigation.navigate("Beranda")}>
+        <TouchableOpacity
+          onPress={() => {
+            val == "Beranda"
+              ? navigation.navigate("Beranda")
+              : navigation.navigate("Videos");
+          }}
+        >
           <View style={styles.buttonBack}>
-            <Icon name="arrow-back-outline" size={24} color={colors.text}  />
+            <Icon name="arrow-back-outline" size={24} color={colors.text} />
           </View>
         </TouchableOpacity>
-        <View style={styles.searchContainer}><Icon
-              name="search"
-              size={24}
-              color="#c3c3c3"
-              style={styles.icon}
-            />
+        <View style={styles.searchContainer}>
+          <Icon name="search" size={24} color="#c3c3c3" style={styles.icon} />
           <TextInput
             placeholder="Cari Berita"
             style={styles.input}

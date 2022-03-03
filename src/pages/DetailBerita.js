@@ -14,14 +14,17 @@ import Icon from "react-native-vector-icons/Ionicons";
 import { useTheme } from "@react-navigation/native";
 
 const DetailBerita = ({ navigation, route }) => {
-  const { title, image, kategori, keterangan,header } = route.params;
+  const { title, image, kategori, keterangan, header } = route.params;
   const { colors } = useTheme();
 
   return (
-    <View style={{ flex: 1 }}>
+    <View>
       <StatusBar />
       <ScrollView>
-        <ImageBackground source={header ? {uri:image} : image} style={styles.gambar}>
+        <ImageBackground
+          source={header ? { uri: image } : image}
+          style={styles.gambar}
+        >
           <TouchableOpacity
             style={{
               marginLeft: 10,
@@ -36,8 +39,21 @@ const DetailBerita = ({ navigation, route }) => {
             <Icon name="arrow-back-outline" size={30} color="#000" />
           </TouchableOpacity>
         </ImageBackground>
-        <View style={{ paddingHorizontal: 12 }}>
-          <Text style={styles.tamel}>{kategori}</Text>
+        <View
+          style={{
+            flex: 1,
+            backgroundColor: colors.background,
+            justifyContent: "center",
+            alignContent: "center",
+            paddingHorizontal: 12,
+            borderTopLeftRadius: 30,
+            borderTopRightRadius: 30,
+            position: "relative",
+            top: -32,
+            paddingTop: 10,
+          }}
+        >
+          <Text style={{...styles.tamel, fontFamily:'Montserrat_400Regular'}}>{kategori}</Text>
           <Text
             style={{
               fontSize: 17,
@@ -45,6 +61,7 @@ const DetailBerita = ({ navigation, route }) => {
               color: colors.text,
               marginTop: 1,
               textAlign: "justify",
+              fontFamily: "Montserrat_400Regular",
             }}
           >
             {title}
@@ -60,7 +77,7 @@ const DetailBerita = ({ navigation, route }) => {
           >
             {keterangan}
           </Text>
-          <Text style={{...styles.isi, color:colors.text}}>
+          <Text style={{ ...styles.isi, color: colors.text, fontFamily:'OpenSans_400Regular' }}>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
             facilisis efficitur dolor. Sed in ipsum risus. Nulla iaculis velit
             et lobortis facilisis. Pellentesque ut erat turpis. Proin maximus
@@ -71,17 +88,21 @@ const DetailBerita = ({ navigation, route }) => {
             Sed quis tortor mauris. Integer non tortor eget erat finibus
             rhoncus. Duis ut vehicula felis, non scelerisque orci. Cras interdum
             dignissim est a consequat. Sed at placerat massa. Mauris sapien
+            {"\n"}
+            {"\n"}
             felis, ultricies nec mollis eget, sollicitudin eget purus. Maecenas
             at consequat tortor. Donec eleifend molestie fermentum. Quisque
             sollicitudin massa neque, nec lacinia odio tincidunt et. Quisque in
             ipsum ut libero ornare placerat et non lorem. Nulla nisi nisi,
             mattis sit amet sodales vel, condimentum porta mauris. Mauris sed
+            {"\n"}
             luctus est. Mauris porta ullamcorper velit eu mattis. Sed mollis sed
             sem non mattis. Aliquam ac ornare augue. Proin maximus purus massa,
             sit amet rutrum libero sodales et. Praesent suscipit mi nibh, eget
             suscipit tortor porta sed. In vitae luctus nisl. Proin eget
             pellentesque orci. Donec mattis sapien ut fringilla vehicula. Donec
             pharetra vel urna a rhoncus. Cras bibendum tortor eget purus
+            {"\n"}
             sagittis, eget aliquet augue ultricies. Vestibulum ante ipsum primis
             in faucibus orci luctus et ultrices posuere cubilia curae; Aenean
             vitae ante eu nibh iaculis tristique nec ac justo. Phasellus ut
@@ -91,6 +112,7 @@ const DetailBerita = ({ navigation, route }) => {
             eget enim sagittis mattis id sed ante. Praesent efficitur, quam vel
             fermentum ornare, dolor orci laoreet ipsum, quis fermentum tortor
             mauris in tellus. Duis sollicitudin, lorem non vulputate suscipit,
+            {"\n"}
             orci felis tristique libero, et dictum risus nisi vel velit. Proin
             nisl erat, laoreet eu lacus ut, euismod viverra libero. Nullam
             dignissim lectus erat, eu vulputate arcu ultricies at. Sed posuere
@@ -107,7 +129,7 @@ const DetailBerita = ({ navigation, route }) => {
           >
             Berita Lain
           </Text>
-          <Text style={{...styles.berital, color:colors.text}}>
+          <Text style={{ ...styles.berital, color: colors.text }}>
             Kesabaran AKBP Dermawan Yang Dipukuli Massa Pemuda Pancasila Dipuji
           </Text>
           <Text
@@ -121,7 +143,7 @@ const DetailBerita = ({ navigation, route }) => {
           >
             23 Menit Yang Lalu
           </Text>
-          <Text style={{...styles.berital, color:colors.text}}>
+          <Text style={{ ...styles.berital, color: colors.text }}>
             AHY Klaim Putusan MK Soal UU Cipta Kerja Sejalan Sikap Demokrat
           </Text>
           <Text
@@ -135,7 +157,7 @@ const DetailBerita = ({ navigation, route }) => {
           >
             40 Menit Yang Lalu
           </Text>
-          <Text style={{...styles.berital, color:colors.text}}>
+          <Text style={{ ...styles.berital, color: colors.text }}>
             Alasan Buruh Minta Aturan Upah Mesti Balik ke yang Lama
           </Text>
           <Text
@@ -149,7 +171,7 @@ const DetailBerita = ({ navigation, route }) => {
           >
             56 Menit Yang Lalu
           </Text>
-          <Text style={{...styles.berital, color:colors.text}}>
+          <Text style={{ ...styles.berital, color: colors.text }}>
             Dirjen Keuangan Daerah Kemendagri Ardian NoerVianto Dicpot
           </Text>
           <Text
@@ -171,12 +193,8 @@ const DetailBerita = ({ navigation, route }) => {
 
 const styles = StyleSheet.create({
   gambar: {
-    width: 410,
-    height: 330,
-    // justifyContent: 'center',
-    // alignItems: 'center',
-    marginHorizontal: 0,
-    padding: 1,
+    resizeMode: "contain",
+    height: 310,
   },
 
   tamel: {

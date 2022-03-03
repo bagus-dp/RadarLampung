@@ -7,7 +7,8 @@ export const darkTheme = {
       ...DarkTheme.colors,
       background: '#000',
       primary: '#0057A1',
-      text: 'white'
+      text: 'white',
+      fontFamily: "Montserrat_400Regular",
     },
   };
   

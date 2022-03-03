@@ -6,7 +6,8 @@ export const lightTheme = {
     colors: {
       ...DefaultTheme.colors,
       background: '#fff',
-      primary: '#0057A1'
+      primary: '#0057A1',
+      fontFamily: "Montserrat_400Regular",
     },
   };
   

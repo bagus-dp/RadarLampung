@@ -21,6 +21,7 @@ import {
 } from "../../assets/images";
 import YoutubePlayer from "react-native-youtube-iframe";
 import { useTheme } from "@react-navigation/native";
+import Icon from "react-native-vector-icons/Ionicons";
 
 const ListVideo = [
   {
@@ -38,8 +39,8 @@ const ListVideo = [
     urlVideo: "nQ3AbKu-SCw",
     judul: "Hiu Tutul Terdapar Lahirkan Anak di Pantai Sukaraja",
   },
-]
-  const ListVideopilihan = [
+];
+const ListVideoPilihan = [
   {
     id: 4,
     urlVideo: "dXbNXKQk47A",
@@ -68,41 +69,90 @@ const ListVideo = [
   },
 ];
 
-const Videos = () => {
-  const video = React.useRef(null);
-  const {colors} = useTheme();
+const Videos = ({ navigation }) => {
+  const { colors } = useTheme();
 
   return (
-    <View style={{ flex: 1}}>
+    <View style={{ flex: 1 }}>
       <View
         style={{
-          padding: 10,
+          paddingHorizontal: 25,
+          paddingVertical: 10,
           borderBottomWidth: 1,
           borderColor: "#c4c4c4",
           height: 50,
+          justifyContent: "space-between",
+          flexDirection: "row",
         }}
       >
-        <Text style={{ fontSize: 16, fontWeight: "bold", color:colors.text }}>Videos</Text>
+        <Text style={{ fontSize: 16, fontWeight: "bold", color: colors.text }}>
+          Videos
+        </Text>
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate("Search", {
+              val: "Videos",
+            });
+          }}
+        >
+          <Icon name="search-outline" size={24} color={colors.text} />
+        </TouchableOpacity>
       </View>
-      <FlatList
-        data={ListVideo}
-        renderItem={({ item }) => (
-          <View style={{ paddingHorizontal: 25, marginVertical: 10 }}>
-            <View style={{ justifyContent: "center" }}>
-              <YoutubePlayer
-                style={{ borderRadius: 12 }}
-                height= {170}
-                videoId={item.urlVideo}
-              />
-              <Text style={{ fontWeight: "bold", fontSize: 16, color:colors.text }}>
-                {item.judul}
-              </Text>
+      <ScrollView>
+        <FlatList
+          data={ListVideo}
+          renderItem={({ item }) => (
+            <View style={{ paddingHorizontal: 25, marginVertical: 10 }}>
+              <View style={{ justifyContent: "center" }}>
+                <YoutubePlayer
+                  style={{ borderRadius: 12 }}
+                  height={170}
+                  videoId={item.urlVideo}
+                />
+                <Text
+                  style={{
+                    fontWeight: "bold",
+                    fontSize: 16,
+                    color: colors.text,
+                  }}
+                >
+                  {item.judul}
+                </Text>
+              </View>
             </View>
-          </View>
-        )}
-        keyExtractor={(item) => item.id}
-        ListFooterComponent={<View style={{ marginBottom: 50 }} />}
-      />
+          )}
+          keyExtractor={(item) => item.id}
+        />
+        <FlatList
+          data={ListVideoPilihan}
+          numColumns={2}
+          renderItem={({ item }) => (
+            <View
+              style={{ paddingHorizontal: 25, marginTop: 10, width: "50%" }}
+            >
+              <View style={{ justifyContent: "center" }}>
+                <YoutubePlayer
+                  style={{ borderRadius: 12 }}
+                  height={78}
+                  videoId={item.urlVideo}
+                />
+                <Text
+                  style={{
+                    fontWeight: "bold",
+                    fontSize: 16,
+                    color: colors.text,
+                  }}
+                  numberOfLines={2}
+                >
+                  {item.judul}
+                </Text>
+              </View>
+            </View>
+          )}
+          keyExtractor={(item) => item.id}
+          ListFooterComponent={<View style={{ marginBottom: 50 }} />}
+        />
+      </ScrollView>
     </View>
   );
 };
