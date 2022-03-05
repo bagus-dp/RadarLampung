@@ -7,8 +7,9 @@ import {
   ScrollView,
   StatusBar,
   ImageBackground,
+  TextInput,
+  TouchableOpacity
 } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import { berita5 } from "../../assets/images";
 import Icon from "react-native-vector-icons/Ionicons";
 import { useTheme } from "@react-navigation/native";
@@ -119,6 +120,15 @@ const DetailBerita = ({ navigation, route }) => {
             orci egestas, efficitur magna quis, tincidunt magna. Nunc dui velit,
             imperdiet quis odio id, viverra molestie mauris.
           </Text>
+          <View style={{flex:1}}>
+          <TextInput
+          placeholder="Komentar"
+          style={styles.input}
+          />
+          <TouchableOpacity style={styles.send}>
+            <Text style={styles.sendText}>KIRIM</Text>
+          </TouchableOpacity>
+          </View>
           <Text
             style={{
               fontSize: 14,
@@ -227,6 +237,31 @@ const styles = StyleSheet.create({
     height: 80,
     width: 410,
   },
+  input: {
+    height: 110,
+    flex:1,
+    marginTop:25,
+    borderWidth: 1,
+    paddingHorizontal: 10,
+    borderRadius: 20,
+    paddingBottom:50,
+    fontFamily:'Montserrat_600SemiBold'
+  },
+  send: {
+    backgroundColor:'#0057A1',
+    width:100,
+    height:50,
+    borderRadius:20,
+    alignSelf:'flex-end',
+    marginTop:10,
+    alignItems:'center',
+    justifyContent:'center'
+  },
+  sendText: {
+    color:'white',
+    fontFamily:'Montserrat_600SemiBold',
+    fontSize:14
+  }
 });
 
 export default DetailBerita;

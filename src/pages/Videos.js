@@ -9,16 +9,6 @@ import {
   ScrollView,
   FlatList,
 } from "react-native";
-import {
-  video1,
-  video2,
-  video3,
-  video4,
-  video5,
-  video6,
-  video7,
-  video8,
-} from "../../assets/images";
 import YoutubePlayer from "react-native-youtube-iframe";
 import { useTheme } from "@react-navigation/native";
 import Icon from "react-native-vector-icons/Ionicons";
@@ -61,12 +51,7 @@ const ListVideoPilihan = [
     urlVideo: "G8L8h3oEuaQ",
     judul:
       "Kunjungi Gereja di Bandar Lampung Gus Yaqut, Isyaratkan junjung tinggi Toleransi",
-  },
-  {
-    id: 8,
-    urlVideo: "L10JkrVOiuA",
-    judul: "Nataru, 2900 Personil Siaga di 67 titik di Bandar Lampung",
-  },
+  }
 ];
 
 const Videos = ({ navigation }) => {
@@ -152,6 +137,26 @@ const Videos = ({ navigation }) => {
           keyExtractor={(item) => item.id}
           ListFooterComponent={<View style={{ marginBottom: 50 }} />}
         />
+
+        <View style={{ paddingHorizontal: 25, marginVertical: 10 }}>
+          <View style={{ justifyContent: "center" }}>
+            <YoutubePlayer
+              style={{ borderRadius: 12 }}
+              height={170}
+              videoId={'L10JkrVOiuA'}
+            />
+            <Text
+              style={{
+                fontWeight: "bold",
+                fontSize: 16,
+                color: colors.text,
+              }}
+            >
+              Nataru, 2900 Personil Siaga di 67 titik di Bandar Lampung
+            </Text>
+          </View>
+        </View>
+
       </ScrollView>
     </View>
   );
