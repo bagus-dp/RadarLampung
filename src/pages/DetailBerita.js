@@ -8,7 +8,7 @@ import {
   StatusBar,
   ImageBackground,
   TextInput,
-  TouchableOpacity
+  TouchableOpacity,
 } from "react-native";
 import { berita5 } from "../../assets/images";
 import Icon from "react-native-vector-icons/Ionicons";
@@ -26,19 +26,56 @@ const DetailBerita = ({ navigation, route }) => {
           source={header ? { uri: image } : image}
           style={styles.gambar}
         >
-          <TouchableOpacity
+          <View
             style={{
-              marginLeft: 10,
-              marginTop: 10,
-              padding: 5,
-              backgroundColor: "white",
-              width: 40,
-              borderRadius: 25,
+              flexDirection: "row",
+              justifyContent: "space-between",
+              marginRight: 12,
             }}
-            onPress={() => navigation.navigate("Beranda")}
           >
-            <Icon name="arrow-back-outline" size={30} color="#000" />
-          </TouchableOpacity>
+            <TouchableOpacity
+              style={{
+                marginLeft: 10,
+                marginTop: 10,
+                padding: 10,
+                backgroundColor: "white",
+                borderRadius: 25,
+                alignItems:'center',
+                justifyContent:'center'
+              }}
+              onPress={() => navigation.navigate("Beranda")}
+            >
+              <Icon name="arrow-back-outline" size={24} color="#000" />
+            </TouchableOpacity>
+            <View style={{flexDirection:'row'}}>
+              <TouchableOpacity
+                style={{
+                  marginLeft: 10,
+                  marginTop: 10,
+                  padding: 10,
+                  backgroundColor: "white",
+                  borderRadius: 25,
+                  alignItems:'center',
+                  justifyContent:'center'
+                }}
+              >
+                <Icon name="text-outline" size={24} color="#000" />
+              </TouchableOpacity>
+              <TouchableOpacity
+                style={{
+                  marginLeft: 10,
+                  marginTop: 10,
+                  padding: 10,
+                  backgroundColor: "white",
+                  borderRadius: 25,
+                  alignItems:'center',
+                  justifyContent:'center'
+                }}
+              >
+                <Icon name="share-social-outline" size={24} color="#000" />
+              </TouchableOpacity>
+            </View>
+          </View>
         </ImageBackground>
         <View
           style={{
@@ -54,7 +91,11 @@ const DetailBerita = ({ navigation, route }) => {
             paddingTop: 10,
           }}
         >
-          <Text style={{...styles.tamel, fontFamily:'Montserrat_400Regular'}}>{kategori}</Text>
+          <Text
+            style={{ ...styles.tamel, fontFamily: "Montserrat_400Regular" }}
+          >
+            {kategori}
+          </Text>
           <Text
             style={{
               fontSize: 17,
@@ -78,7 +119,13 @@ const DetailBerita = ({ navigation, route }) => {
           >
             {keterangan}
           </Text>
-          <Text style={{ ...styles.isi, color: colors.text, fontFamily:'OpenSans_400Regular' }}>
+          <Text
+            style={{
+              ...styles.isi,
+              color: colors.text,
+              fontFamily: "OpenSans_400Regular",
+            }}
+          >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla
             facilisis efficitur dolor. Sed in ipsum risus. Nulla iaculis velit
             et lobortis facilisis. Pellentesque ut erat turpis. Proin maximus
@@ -120,14 +167,11 @@ const DetailBerita = ({ navigation, route }) => {
             orci egestas, efficitur magna quis, tincidunt magna. Nunc dui velit,
             imperdiet quis odio id, viverra molestie mauris.
           </Text>
-          <View style={{flex:1}}>
-          <TextInput
-          placeholder="Komentar"
-          style={styles.input}
-          />
-          <TouchableOpacity style={styles.send}>
-            <Text style={styles.sendText}>KIRIM</Text>
-          </TouchableOpacity>
+          <View style={{ flex: 1 }}>
+            <TextInput placeholder="Berikan Komentar..." style={{...styles.input, borderColor:colors.text, color:colors.text,}} placeholderTextColor={colors.text} />
+            <TouchableOpacity style={styles.send}>
+              <Text style={styles.sendText}>KIRIM</Text>
+            </TouchableOpacity>
           </View>
           <Text
             style={{
@@ -239,29 +283,29 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 110,
-    flex:1,
-    marginTop:25,
+    flex: 1,
+    marginTop: 25,
     borderWidth: 1,
     paddingHorizontal: 10,
     borderRadius: 20,
-    paddingBottom:50,
-    fontFamily:'Montserrat_600SemiBold'
+    paddingBottom: 50,
+    fontFamily: "Montserrat_600SemiBold",
   },
   send: {
-    backgroundColor:'#0057A1',
-    width:100,
-    height:50,
-    borderRadius:20,
-    alignSelf:'flex-end',
-    marginTop:10,
-    alignItems:'center',
-    justifyContent:'center'
+    backgroundColor: "#0057A1",
+    width: 100,
+    height: 50,
+    borderRadius: 20,
+    alignSelf: "flex-end",
+    marginTop: 10,
+    alignItems: "center",
+    justifyContent: "center",
   },
   sendText: {
-    color:'white',
-    fontFamily:'Montserrat_600SemiBold',
-    fontSize:14
-  }
+    color: "white",
+    fontFamily: "Montserrat_600SemiBold",
+    fontSize: 14,
+  },
 });
 
 export default DetailBerita;

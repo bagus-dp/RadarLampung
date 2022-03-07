@@ -74,11 +74,11 @@ const Videos = ({ navigation }) => {
           Videos
         </Text>
         <TouchableOpacity
-          onPress={() => {
-            navigation.navigate("Search", {
-              val: "Videos",
-            });
-          }}
+          // onPress={() => {
+          //   navigation.navigate("Search", {
+          //     val: "Videos",
+          //   });
+          // }}
         >
           <Icon name="search-outline" size={24} color={colors.text} />
         </TouchableOpacity>
@@ -138,7 +138,7 @@ const Videos = ({ navigation }) => {
           ListFooterComponent={<View style={{ marginBottom: 50 }} />}
         />
 
-        <View style={{ paddingHorizontal: 25, marginVertical: 10 }}>
+        <View style={{ paddingHorizontal: 25, marginVertical: 10, marginBottom:100 }}>
           <View style={{ justifyContent: "center" }}>
             <YoutubePlayer
               style={{ borderRadius: 12 }}
