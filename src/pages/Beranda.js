@@ -71,7 +71,7 @@ const listBerita = [
   {
     id: 1,
     image: berita2,
-    title: "Dua Preman Resmi Bertaubat Karena Nonton Tukang Bubur Naik Haji",
+    title: "Dua Preman Tertangkap Basah Ketika Melakukan Curanmor",
     keterangan: "Radar Lampung | Rabu 6 Januari 2022 20:30 WIB",
     kategori: "Berita Terbaru",
   },

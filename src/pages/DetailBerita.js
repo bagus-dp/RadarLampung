@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Image,
@@ -13,10 +13,17 @@ import {
 import { berita5 } from "../../assets/images";
 import Icon from "react-native-vector-icons/Ionicons";
 import { useTheme } from "@react-navigation/native";
+import { Menu, MenuItem, MenuDivider } from "react-native-material-menu";
 
 const DetailBerita = ({ navigation, route }) => {
   const { title, image, kategori, keterangan, header } = route.params;
   const { colors } = useTheme();
+
+  const [visible, setVisible] = useState(false);
+
+  const hideMenu = () => setVisible(false);
+
+  const showMenu = () => setVisible(true);
 
   return (
     <View>
@@ -40,27 +47,40 @@ const DetailBerita = ({ navigation, route }) => {
                 padding: 10,
                 backgroundColor: "white",
                 borderRadius: 25,
-                alignItems:'center',
-                justifyContent:'center'
+                alignItems: "center",
+                justifyContent: "center",
               }}
               onPress={() => navigation.navigate("Beranda")}
             >
               <Icon name="arrow-back-outline" size={24} color="#000" />
             </TouchableOpacity>
-            <View style={{flexDirection:'row'}}>
-              <TouchableOpacity
-                style={{
-                  marginLeft: 10,
-                  marginTop: 10,
-                  padding: 10,
-                  backgroundColor: "white",
-                  borderRadius: 25,
-                  alignItems:'center',
-                  justifyContent:'center'
-                }}
+            <View style={{ flexDirection: "row" }}>
+              <Menu
+                visible={visible}
+                anchor={
+                  <TouchableOpacity
+                    style={{
+                      marginLeft: 10,
+                      marginTop: 10,
+                      padding: 10,
+                      backgroundColor: "white",
+                      borderRadius: 25,
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                    onPress={showMenu}
+                  >
+                    <Icon name="text-outline" size={24} color="#000" />
+                  </TouchableOpacity>
+                }
+                onRequestClose={hideMenu}
               >
-                <Icon name="text-outline" size={24} color="#000" />
-              </TouchableOpacity>
+                <MenuItem onPress={hideMenu}>Small</MenuItem>
+                <MenuItem onPress={hideMenu}>Medium</MenuItem>
+                <MenuItem onPress={hideMenu}>Large</MenuItem>
+                <MenuItem onPress={hideMenu}>Extra Large</MenuItem>
+              </Menu>
+
               <TouchableOpacity
                 style={{
                   marginLeft: 10,
@@ -68,8 +88,8 @@ const DetailBerita = ({ navigation, route }) => {
                   padding: 10,
                   backgroundColor: "white",
                   borderRadius: 25,
-                  alignItems:'center',
-                  justifyContent:'center'
+                  alignItems: "center",
+                  justifyContent: "center",
                 }}
               >
                 <Icon name="share-social-outline" size={24} color="#000" />
@@ -168,7 +188,15 @@ const DetailBerita = ({ navigation, route }) => {
             imperdiet quis odio id, viverra molestie mauris.
           </Text>
           <View style={{ flex: 1 }}>
-            <TextInput placeholder="Berikan Komentar..." style={{...styles.input, borderColor:colors.text, color:colors.text,}} placeholderTextColor={colors.text} />
+            <TextInput
+              placeholder="Berikan Komentar..."
+              style={{
+                ...styles.input,
+                borderColor: colors.text,
+                color: colors.text,
+              }}
+              placeholderTextColor={colors.text}
+            />
             <TouchableOpacity style={styles.send}>
               <Text style={styles.sendText}>KIRIM</Text>
             </TouchableOpacity>
